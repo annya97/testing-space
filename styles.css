@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    background-color: #e7e7e7;
+}
+
+.contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin-top: -2rem;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.error {
+    height: 1rem;
+    color: red;
+}
+
+.part-input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.part-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.part-result {
+    display: flex;
+    justify-content: center;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 4rem;
+    background-color: #b3b3b3;
+}
