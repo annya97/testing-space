@@ -6,17 +6,43 @@
     </head>
     <body>
         <div class="contents">
-            <div class="calculator">
-                <div class="error"></div>
-                <div class="part-input">
-                    <input type="text" name="input_1"/>
-                    <div class="plus-sign">+</div>
-                    <input type="text" name="input_2"/>
+            <div class="navigation">
+                <div class="one">Small calculator (plus)</div>
+                <div class="two">Small calculator (minus)</div>
+                <div class="three">Letter capitalizer</div>
+            </div>
+            <div class="main">
+                <div class="calculator-plus calculator">
+                    <div class="error"></div>
+                    <div class="part-input">
+                        <input type="text" name="input_1"/>
+                        <div class="sign">+</div>
+                        <input type="text" name="input_2"/>
+                    </div>
+                    <div class="part-controls">
+                        <button type="button" name="calculate">Calculate</button>
+                    </div>
+                    <div class="part-result">
+                        <div class="result"></div>
+                    </div>
                 </div>
-                <div class="part-controls">
-                    <button type="button" name="calculate">Calculate</button>
+                <div class="calculator-minus calculator">
+                    <div class="error"></div>
+                    <div class="part-input">
+                        <input type="text" name="input_1"/>
+                        <div class="sign">-</div>
+                        <input type="text" name="input_2"/>
+                    </div>
+                    <div class="part-controls">
+                        <button type="button" name="calculate">Calculate</button>
+                    </div>
+                    <div class="part-result">
+                        <div class="result"></div>
+                    </div>
                 </div>
-                <div class="part-result">
+                <div class="letter-capitalizer">
+                    <input type="text" name="input"/>
+                    <button type="button" name="capitalize">Capitalize</button>
                     <div class="result"></div>
                 </div>
             </div>
