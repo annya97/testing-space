@@ -80,3 +80,13 @@ body {
     width: 5rem;
     height: 3rem;
 }
+
+.square {
+    display: flex;
+    gap: 2rem;
+}
+
+.square .result {
+    width: 5rem;
+    height: 3rem;
+}

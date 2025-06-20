@@ -1,25 +1,36 @@
 const calculator_plus = document.querySelector('.calculator-plus');
 const calculator_minus = document.querySelector('.calculator-minus');
 const letter_capitalizer = document.querySelector('.letter-capitalizer');
+const square = document.querySelector('.square');
 
 calculator_plus.style.display = 'none';
 calculator_minus.style.display = 'none';
 letter_capitalizer.style.display = 'none';
+square.style.display = 'none';
 
 document.querySelector('.navigation .one').addEventListener('click', () => {
     calculator_plus.style.display = '';
     calculator_minus.style.display = 'none';
     letter_capitalizer.style.display = 'none';
+    square.style.display = 'none';
 });
 document.querySelector('.navigation .two').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
     calculator_minus.style.display = '';
     letter_capitalizer.style.display = 'none';
+    square.style.display = 'none';
 });
 document.querySelector('.navigation .three').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
     calculator_minus.style.display = 'none';
     letter_capitalizer.style.display = '';
+    square.style.display = 'none';
+});
+document.querySelector('.navigation .four').addEventListener('click', () => {
+    calculator_plus.style.display = 'none';
+    calculator_minus.style.display = 'none';
+    letter_capitalizer.style.display = 'none';
+    square.style.display = '';
 });
 
 calculator_plus.querySelector('button[name="calculate"]').addEventListener('click', () => {
@@ -81,4 +92,16 @@ letter_capitalizer.querySelector('button[name="capitalize"]').addEventListener('
     }
 
     letter_capitalizer.querySelector('.result').textContent = result;
+});
+
+square.querySelector('button[name="square"]').addEventListener('click', () => {
+    const value = square.querySelector('input[name="input"]').value;
+
+    let result = '-';
+
+    if (!isNaN(value)) {
+        result = value ** 2;
+    }
+
+    square.querySelector('.result').textContent = result;
 });
