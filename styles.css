@@ -35,6 +35,13 @@ body {
     align-items: center;
 }
 
+.title {
+    position: absolute;
+    top: 0;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
