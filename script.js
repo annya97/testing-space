@@ -3,12 +3,14 @@ const calculator_minus = document.querySelector('.calculator-minus');
 const letter_capitalizer = document.querySelector('.letter-capitalizer');
 const square = document.querySelector('.square');
 const color_selector = document.querySelector('.color-selector');
+const calculator_divide = document.querySelector('.calculator-divide');
 
 calculator_plus.style.display = 'none';
 calculator_minus.style.display = 'none';
 letter_capitalizer.style.display = 'none';
 square.style.display = 'none';
 color_selector.style.display = 'none';
+calculator_divide.style.display = 'none';
 
 document.querySelector('.navigation .one').addEventListener('click', () => {
     calculator_plus.style.display = '';
@@ -16,6 +18,7 @@ document.querySelector('.navigation .one').addEventListener('click', () => {
     letter_capitalizer.style.display = 'none';
     square.style.display = 'none';
     color_selector.style.display = 'none';
+    calculator_divide.style.display = 'none';
 });
 document.querySelector('.navigation .two').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
@@ -23,6 +26,7 @@ document.querySelector('.navigation .two').addEventListener('click', () => {
     letter_capitalizer.style.display = 'none';
     square.style.display = 'none';
     color_selector.style.display = 'none';
+    calculator_divide.style.display = 'none';
 });
 document.querySelector('.navigation .three').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
@@ -30,6 +34,7 @@ document.querySelector('.navigation .three').addEventListener('click', () => {
     letter_capitalizer.style.display = '';
     square.style.display = 'none';
     color_selector.style.display = 'none';
+    calculator_divide.style.display = 'none';
 });
 document.querySelector('.navigation .four').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
@@ -37,6 +42,7 @@ document.querySelector('.navigation .four').addEventListener('click', () => {
     letter_capitalizer.style.display = 'none';
     square.style.display = '';
     color_selector.style.display = 'none';
+    calculator_divide.style.display = 'none';
 });
 document.querySelector('.navigation .five').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
@@ -44,6 +50,15 @@ document.querySelector('.navigation .five').addEventListener('click', () => {
     letter_capitalizer.style.display = 'none';
     square.style.display = 'none';
     color_selector.style.display = '';
+    calculator_divide.style.display = 'none';
+});
+document.querySelector('.navigation .six').addEventListener('click', () => {
+    calculator_plus.style.display = 'none';
+    calculator_minus.style.display = 'none';
+    letter_capitalizer.style.display = 'none';
+    square.style.display = 'none';
+    color_selector.style.display = 'none';
+    calculator_divide.style.display = '';
 });
 
 calculator_plus.querySelector('button[name="calculate"]').addEventListener('click', () => {
@@ -161,4 +176,30 @@ color_selector.querySelector('button[name="color"]').addEventListener('click', (
     }
 
     color_selector.querySelector('.result').style.backgroundColor = result;
+});
+
+calculator_divide.querySelector('button[name="calculate"]').addEventListener('click', () => {
+    const error = calculator_divide.querySelector('.error');
+
+    error.textContent = '';
+
+    const number_1 = Number(calculator_divide.querySelector('input[name="input_1"]').value);
+    const number_2 = Number(calculator_divide.querySelector('input[name="input_2"]').value);
+
+    let result = '';
+
+    if (isNaN(number_1) || isNaN(number_2)) {
+        error.textContent = 'Only numbers are allowed!';
+    }
+    else if (number_1 < 0 || number_2 < 0) {
+        error.textContent = 'Negative numbers are not allowed!';
+    }
+    else if (number_1 > 99 || number_2 > 99) {
+        error.textContent = 'One or both fields are out of range (0 - 99). Please enter valid numbers!';
+    }
+    else {
+        result = number_1 / number_2;
+    }
+
+    calculator_divide.querySelector('.result').textContent = result;
 });
