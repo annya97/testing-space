@@ -2,35 +2,48 @@ const calculator_plus = document.querySelector('.calculator-plus');
 const calculator_minus = document.querySelector('.calculator-minus');
 const letter_capitalizer = document.querySelector('.letter-capitalizer');
 const square = document.querySelector('.square');
+const color_selector = document.querySelector('.color-selector');
 
 calculator_plus.style.display = 'none';
 calculator_minus.style.display = 'none';
 letter_capitalizer.style.display = 'none';
 square.style.display = 'none';
+color_selector.style.display = 'none';
 
 document.querySelector('.navigation .one').addEventListener('click', () => {
     calculator_plus.style.display = '';
     calculator_minus.style.display = 'none';
     letter_capitalizer.style.display = 'none';
     square.style.display = 'none';
+    color_selector.style.display = 'none';
 });
 document.querySelector('.navigation .two').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
     calculator_minus.style.display = '';
     letter_capitalizer.style.display = 'none';
     square.style.display = 'none';
+    color_selector.style.display = 'none';
 });
 document.querySelector('.navigation .three').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
     calculator_minus.style.display = 'none';
     letter_capitalizer.style.display = '';
     square.style.display = 'none';
+    color_selector.style.display = 'none';
 });
 document.querySelector('.navigation .four').addEventListener('click', () => {
     calculator_plus.style.display = 'none';
     calculator_minus.style.display = 'none';
     letter_capitalizer.style.display = 'none';
     square.style.display = '';
+    color_selector.style.display = 'none';
+});
+document.querySelector('.navigation .five').addEventListener('click', () => {
+    calculator_plus.style.display = 'none';
+    calculator_minus.style.display = 'none';
+    letter_capitalizer.style.display = 'none';
+    square.style.display = 'none';
+    color_selector.style.display = '';
 });
 
 calculator_plus.querySelector('button[name="calculate"]').addEventListener('click', () => {
@@ -104,4 +117,48 @@ square.querySelector('button[name="square"]').addEventListener('click', () => {
     }
 
     square.querySelector('.result').textContent = result;
+});
+
+color_selector.querySelector('select[name="type"]').addEventListener('change', () => {
+    const type = color_selector.querySelector('select[name="type"]').value;
+    const color_1_el = color_selector.querySelector('input[name="color_1"]');
+    const color_2_el = color_selector.querySelector('input[name="color_2"]');
+
+    if (type === '1') {
+        color_1_el.style.display = 'block';
+        color_2_el.style.display = '';
+    }
+    else if (type === '2') {
+        color_1_el.style.display = '';
+        color_2_el.style.display = 'block';
+    }
+    else {
+        color_1_el.style.display = '';
+        color_2_el.style.display = '';
+    }
+
+    color_1_el.value = '';
+    color_2_el.value = '#ffffff';
+    color_selector.querySelector('.result').style.backgroundColor = '#ffffff';
+});
+
+color_selector.querySelector('button[name="color"]').addEventListener('click', () => {
+    const type = color_selector.querySelector('select[name="type"]').value;
+    const color_1_val = color_selector.querySelector('input[name="color_1"]').value;
+    const color_2_val = color_selector.querySelector('input[name="color_2"]').value;
+
+    let result = '#ffffff';
+
+    isColorHex = value => {
+        return /^#([0-9A-F]{6})$/i.test(value);
+    };
+
+    if (type === '1') {
+        result = isColorHex(color_1_val) ? color_1_val : '#ffffff';
+    }
+    else if (type === '2') {
+        result = isColorHex(color_2_val) ? color_2_val : '#ffffff';
+    }
+
+    color_selector.querySelector('.result').style.backgroundColor = result;
 });
